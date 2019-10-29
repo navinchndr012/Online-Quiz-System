@@ -13,7 +13,7 @@ import org.w3c.dom.Document;
 
 import co.edureka.quiz.CreateDOM;
 
-@WebServlet(urlPatterns = { "/login", "/register", "/takeExam", "/logout" })
+@WebServlet(urlPatterns = { "/login", "/register", "/takeExam", "/logout", "/admin" })
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,13 +36,18 @@ public class MainController extends HttpServlet {
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher("/WEB-INF/jsps/register.jsp");
 			dispatcher.forward(request, response);
+		}else if (request.getRequestURI().equals(
+				applicationContextPath + "/admin")) {
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("/WEB-INF/jsps/admin.jsp");
+			dispatcher.forward(request, response);
 		} else if (request.getRequestURI().equals(
 				applicationContextPath + "/takeExam")) {
 			
 			request.getSession().setAttribute("currentExam", null);
 			request.getSession().setAttribute("totalNumberOfQuizQuestions",null);
 			request.getSession().setAttribute("quizDuration",null);
-			request.getSession().setAttribute("min",null);
+			request.getSession().setAttribute("10 min",null);
 			request.getSession().setAttribute("sec",null);
 
 			String exam = request.getParameter("test");

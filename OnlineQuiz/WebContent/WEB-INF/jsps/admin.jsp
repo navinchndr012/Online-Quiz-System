@@ -9,12 +9,8 @@
     </title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
-    <style type="text/css">
-body {
-	background-image: url("${pageContext.request.contextPath}/images/signup.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 750px;
-}
+   <style type="text/css">
+
 .user-icon {
 	top:153px; /* Positioning fix for slide-in, got lazy to think up of simpler method. */
 	background: rgba(65,72,72,0.75) url('${pageContext.request.contextPath}/images/user-icon.png') no-repeat center;	
@@ -28,25 +24,18 @@ body {
 
 </style>
 </head>
-<body>
+<body style="background-color:black;">
 
 <div id='cssmenu'>
 <ul>
    <li class=''><a href='${pageContext.request.contextPath}'><span>Home</span></a></li>
-   <li class='#'><a href='#'><span>Submit a Question</span></a></li>
    <li><a href='#'><span>Contact us</span></a></li>
-   <li style="margin-left:700px;"><a href='${pageContext.request.contextPath}/register'><span>Register</span></a></li>
 </ul>
 </div>
+<h3 align="center" style="color:white; margin-top: 50px;">${errorMessage}</h3>
+<div id="wrapper" style=" margin-top: 50px;">
 
-<div style="position:absolute;left:500px;top:75px">
-Don`t have an account, click here to <a href='${pageContext.request.contextPath}/register'>Register</a>
-<br/>
-<h3 align="center">${errorMessage}</h3>
-</div>
-<div id="wrapper">
-
-	<form name="login-form" class="login-form" action="checkLogin" method="post">
+	<form name="login-form" class="login-form" action="checkAdmin" method="post">
 	
 		<div class="header">
 		<h1>Login </h1>

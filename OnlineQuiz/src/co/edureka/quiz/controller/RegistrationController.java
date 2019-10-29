@@ -33,16 +33,19 @@ public class RegistrationController extends HttpServlet {
     
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		String username=request.getParameter("username");
+		String username=request.getParameter("user_name");
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
+		String fname=request.getParameter("first_name");
+		String lname=request.getParameter("last_name");
+		String institute=request.getParameter("institute");
 		
 		Connection con=DatabaseConnectionFactory.createConnection();
 		
 		try
 		{
 		 Statement st=con.createStatement();
-		 String sql = "INSERT INTO users values ('"+username+"','"+password+"','"+email+"')";
+		 String sql = "INSERT INTO student values ('"+fname+"','"+lname+"','"+institute+"','"+email+"','"+username+"','"+password+"')";
 		 		System.out.println(sql);
 		 st.executeUpdate(sql);
 		}catch(SQLException sqe){System.out.println("Error : While Inserting record in database");}

@@ -17,16 +17,16 @@ import javax.servlet.http.HttpSession;
 import co.edureka.quiz.DatabaseConnectionFactory;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class AdminController
  */
-@WebServlet("/checkLogin")
-public class LoginController extends HttpServlet {
+@WebServlet("/checkAdmin")
+public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public AdminController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,7 +44,7 @@ public class LoginController extends HttpServlet {
 		try
 		{
 		 Statement st=con.createStatement();
-		 String sql = "Select * from  student where username='"+username+"' and pass='"+password+"' ";
+		 String sql = "Select * from  admin where username='"+username+"' and pass='"+password+"' ";
 		 		System.out.println(sql);
 		 set=st.executeQuery(sql);
 		 while(set.next())
@@ -61,7 +61,7 @@ public class LoginController extends HttpServlet {
 		 }
 		 else
 		 {   request.setAttribute("errorMessage","Invalid username or password");
-			 RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/jsps/login.jsp");
+			 RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/jsps/admin.jsp");
 			 rd.forward(request, response);
 		 }
 		}catch(SQLException sqe){System.out.println("Error : While Fetching records from database");}

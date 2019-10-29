@@ -10,7 +10,9 @@
     <style type="text/css">
     
 body {
-	background: url("${pageContext.request.contextPath}/images/background.jpg");
+	background: url("${pageContext.request.contextPath}/images/front.png");
+	background-repeat: no-repeat;
+	background-size: 100% 800px;
 }
 
 .button {
@@ -50,53 +52,64 @@ body {
 
 </style>
   
-   <title>TechQ Online Quiz</title>
+   <title>Online Quiz</title>
 </head>
 <body>
 
-<div id='cssmenu'>
+<div id='cssmenu' style="margin-top:-10px;">
 <ul>
    <li class=''><a href='${pageContext.request.contextPath}'><span>Home</span></a></li>
-   <li><a href='${pageContext.request.contextPath}/login'><span>Login</span></a></li>
-   <li><a href='${pageContext.request.contextPath}/register'><span>Register</span></a></li>
-   <li class='#'><a href='#'><span>Submit a Question</span></a></li>
-   <li class='#'><a href='#'><span>Feedback</span></a></li>
-   <li><a href='#'><span>Contribute</span></a></li>
+   <li class='#'><a href='${pageContext.request.contextPath}/admin' id="admin"><span>Submit a Question</span></a></li>
    <li><a href='#'><span>Contact us</span></a></li>
+   <li style="margin-left:600px;" id="log"><a href='${pageContext.request.contextPath}/login'><span>Login</span></a></li>
+   <li style="position:absolute;left:1300px"><a href='${pageContext.request.contextPath}/register'><span>Register</span></a></li>
 </ul>
 </div>
 
 <c:if test='${not empty sessionScope.user}'>
+<script type="text/javascript"> 
+    document.getElementById("log").style.display = "none";  
+    document.getElementById("admin").style.display = "none";  
+</script> 
+</script>
+<style>
+body {
+	background: url("${pageContext.request.contextPath}/images/loginback.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
 
-<div style="position:absolute;top:70px;left:1100px">
+</style>
+
+
+<div style="position:absolute;top:70px;left:1200px">
 Logged as <a href="#" class="button username">${sessionScope.user}</a>
 </div>
 
-<div style="position:absolute;top:70px;left:1300px">
-<a href='${pageContext.request.contextPath}/logout'>Logout</a>
+<div style="position:absolute;top:70px;left:1400px">
+<a href='${pageContext.request.contextPath}/logout' class="button username">Logout</a>
 </div>
 
-</c:if>
-
-<div style="position:absolute;left:120px;top:60px">
-<table cellpadding="0" cellspacing="50">
+<div style="position:absolute;left:300px;top:80px">
+<table cellpadding="0" cellspacing="70">
 
 <tr>
 <td><a href="takeExam?test=java"><img height="200" width="200" src="${pageContext.request.contextPath}/images/java.png"/></a></td>
-<td><a href="takeExam?test=javascript"><img height="200" width="200" src="${pageContext.request.contextPath}/images/javascript.png"/></a></td>
-<td><a href="takeExam?test=sql"><img height="200" width="200" src="${pageContext.request.contextPath}/images/sql-logo.png"/></a></td>
+<td><a href="takeExam?test=dbms"><img height="200" width="200" src="${pageContext.request.contextPath}/images/dbms.png"/></a></td>
 <td><a href="takeExam?test=python"><img height="200" width="200" src="${pageContext.request.contextPath}/images/python.jpg"/></a></td>
 </tr>
 
 <tr>
 <td><a href="takeExam?test=css"><img height="200" width="200" src="${pageContext.request.contextPath}/images/css.jpg"/></a></td>
-<td><a href="takeExam?test=php"><img height="200" width="200" src="${pageContext.request.contextPath}/images/php-logo.jpg"/></a></td>
-<td><a href="takeExam?test=linux"><img height="200" width="200" src="${pageContext.request.contextPath}/images/logo-linux.png"/></a></td>
-<td><a href="takeExam?test=mongodb"><img height="200" width="200" src="${pageContext.request.contextPath}/images/mongodb_logo.png"/></a></td>
+<td><a href="takeExam?test=iot"><img height="200" width="200" src="${pageContext.request.contextPath}/images/iot.png"/></a></td>
+<td><a href="takeExam?test=c"><img height="200" width="200" src="${pageContext.request.contextPath}/images/c.png"/></a></td>
 </tr>
 
 </table>
 </div>
+
+</c:if>
+
 
 
 </body>
